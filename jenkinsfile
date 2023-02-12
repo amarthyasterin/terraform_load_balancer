@@ -9,6 +9,7 @@ pipeline {
         }
         stage('terraform int') {
             steps {
+                sh 'cd cd /var/lib/jenkins/workspace/terraform_load_balancer/'
                 sh 'terraform init' 
             }
         }
