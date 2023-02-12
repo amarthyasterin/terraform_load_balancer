@@ -15,7 +15,7 @@ pipeline {
         }
         stage('tg taint') {
             steps {
-                sh 'terraform untaint aws_lb_target_group.tg'
+                sh 'terraform taint aws_lb_target_group.tg'
             }
         }
         stage('terraform apply') {
