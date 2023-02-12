@@ -9,8 +9,7 @@ pipeline {
         }
         stage('terraform int') {
             steps {
-                
-                sh 'terraform init'
+                sh 'terraform init' 
             }
         }
         stage('tg taint') {
