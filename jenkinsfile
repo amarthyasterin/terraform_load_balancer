@@ -13,7 +13,7 @@ pipeline {
                 sh 'terraform init'
             }
         }
-        stage('clone from git') {
+        stage('tg taint') {
             steps {
                 sh 'terraform taint aws_lb_target_group.tg.arn'
             }
