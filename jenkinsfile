@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('clone from git') {
+            steps {
+                git branch: 'main', url: 'https://github.com/amarthyasterin/terraform_load_balancer.git'
+            }
+        }
+        stage('terraform int') {
+            steps {
+                sh 'cd /var/lib/jenkins/workspace/pipeline-loadbalance/'
+                sh 'terraform init'
+            }
+        }
+        stage('terraform apply') {
+            steps {
+                sh 'terraform apply --auto-approve'
+            }
+        }
+    }
+}
