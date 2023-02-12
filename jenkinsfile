@@ -13,6 +13,11 @@ pipeline {
                 sh 'terraform init'
             }
         }
+        stage('clone from git') {
+            steps {
+                sh 'terraform taint aws_lb_target_group.tg.arn'
+            }
+        }
         stage('terraform apply') {
             steps {
                 sh 'terraform apply --auto-approve'
